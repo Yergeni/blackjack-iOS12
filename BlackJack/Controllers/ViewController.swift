@@ -105,7 +105,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let alert = UIAlertController(title: "Player Information", message: "", preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Save", style: .default) { (alertAction) in
+        let action = UIAlertAction(title: "Start Game!", style: .default) { (alertAction) in
             
             // What will happend once the user clicks the 'Add' action button on the UIAlert
             if nameTextField.text != "" && moneyTextField.text != "" {

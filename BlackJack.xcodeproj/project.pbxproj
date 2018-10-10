@@ -62,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				497AD5E2213BAF09002E9D9B /* ViewController.swift */,
+				4941998D2168F3B400CB471F /* DealerCardCollectionViewCell.swift */,
+				4941998F216C2FD700CB471F /* PlayerCardCollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -87,8 +89,6 @@
 			children = (
 				497AD5E0213BAF09002E9D9B /* AppDelegate.swift */,
 				49419992216C437A00CB471F /* Controllers */,
-				4941998D2168F3B400CB471F /* DealerCardCollectionViewCell.swift */,
-				4941998F216C2FD700CB471F /* PlayerCardCollectionViewCell.swift */,
 				49419991216C433700CB471F /* Data Model */,
 				497AD5E4213BAF09002E9D9B /* Main.storyboard */,
 				497AD5E7213BAF0B002E9D9B /* Assets.xcassets */,

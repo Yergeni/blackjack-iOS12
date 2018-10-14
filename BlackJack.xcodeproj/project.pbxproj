@@ -7,26 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16D84E6FC85F6F5AEA2F3515 /* Pods_BlackJack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454857601EEEA2E38D44D46B /* Pods_BlackJack.framework */; };
 		4941998E2168F3B400CB471F /* DealerCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941998D2168F3B400CB471F /* DealerCardCollectionViewCell.swift */; };
 		49419990216C2FD700CB471F /* PlayerCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941998F216C2FD700CB471F /* PlayerCardCollectionViewCell.swift */; };
 		49419994216C439D00CB471F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49419993216C439D00CB471F /* Player.swift */; };
 		49419996216C43A900CB471F /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49419995216C43A900CB471F /* Dealer.swift */; };
 		49419998216C43B300CB471F /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49419997216C43B300CB471F /* Hand.swift */; };
 		4941999A216C43E400CB471F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49419999216C43E400CB471F /* Card.swift */; };
+		4941999C2173284F00CB471F /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941999B2173284F00CB471F /* LogInViewController.swift */; };
+		4941999E217328C800CB471F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941999D217328C800CB471F /* RegisterViewController.swift */; };
+		494199A0217328F400CB471F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941999F217328F400CB471F /* WelcomeViewController.swift */; };
 		497AD5E1213BAF09002E9D9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AD5E0213BAF09002E9D9B /* AppDelegate.swift */; };
 		497AD5E3213BAF09002E9D9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497AD5E2213BAF09002E9D9B /* ViewController.swift */; };
 		497AD5E6213BAF09002E9D9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497AD5E4213BAF09002E9D9B /* Main.storyboard */; };
 		497AD5E8213BAF0B002E9D9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497AD5E7213BAF0B002E9D9B /* Assets.xcassets */; };
 		497AD5EB213BAF0B002E9D9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497AD5E9213BAF0B002E9D9B /* LaunchScreen.storyboard */; };
+		49B121FE21733C3800FD62A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49B121FD21733C3800FD62A4 /* GoogleService-Info.plist */; };
+		49B122022173487600FD62A4 /* GameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B122012173487600FD62A4 /* GameTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37CCCFD214ABA10FD22E58BA /* Pods-BlackJack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJack.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlackJack/Pods-BlackJack.release.xcconfig"; sourceTree = "<group>"; };
+		454857601EEEA2E38D44D46B /* Pods_BlackJack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlackJack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4941998D2168F3B400CB471F /* DealerCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		4941998F216C2FD700CB471F /* PlayerCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		49419993216C439D00CB471F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		49419995216C43A900CB471F /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		49419997216C43B300CB471F /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		49419999216C43E400CB471F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		4941999B2173284F00CB471F /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		4941999D217328C800CB471F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4941999F217328F400CB471F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		497AD5DD213BAF09002E9D9B /* BlackJack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackJack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497AD5E0213BAF09002E9D9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497AD5E2213BAF09002E9D9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +45,9 @@
 		497AD5E7213BAF0B002E9D9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		497AD5EA213BAF0B002E9D9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		497AD5EC213BAF0B002E9D9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49B121FD21733C3800FD62A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49B122012173487600FD62A4 /* GameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewController.swift; sourceTree = "<group>"; };
+		F21D19576F714233EA5ED625 /* Pods-BlackJack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlackJack/Pods-BlackJack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +55,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16D84E6FC85F6F5AEA2F3515 /* Pods_BlackJack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DAD27F6BED37C61A9E0F2C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				454857601EEEA2E38D44D46B /* Pods_BlackJack.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49419991216C433700CB471F /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,11 +84,22 @@
 		49419992216C437A00CB471F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4941999F217328F400CB471F /* WelcomeViewController.swift */,
+				4941999D217328C800CB471F /* RegisterViewController.swift */,
+				4941999B2173284F00CB471F /* LogInViewController.swift */,
+				49B122012173487600FD62A4 /* GameTableViewController.swift */,
 				497AD5E2213BAF09002E9D9B /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		494199A121732A2100CB471F /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
 				4941998D2168F3B400CB471F /* DealerCardCollectionViewCell.swift */,
 				4941998F216C2FD700CB471F /* PlayerCardCollectionViewCell.swift */,
 			);
-			path = Controllers;
+			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		497AD5D4213BAF09002E9D9B = {
@@ -73,6 +107,8 @@
 			children = (
 				497AD5DF213BAF09002E9D9B /* BlackJack */,
 				497AD5DE213BAF09002E9D9B /* Products */,
+				B6C4E3E9B46B015DB7D77FB3 /* Pods */,
+				2DAD27F6BED37C61A9E0F2C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,13 +125,24 @@
 			children = (
 				497AD5E0213BAF09002E9D9B /* AppDelegate.swift */,
 				49419992216C437A00CB471F /* Controllers */,
+				494199A121732A2100CB471F /* Custom Cells */,
 				49419991216C433700CB471F /* Data Model */,
 				497AD5E4213BAF09002E9D9B /* Main.storyboard */,
 				497AD5E7213BAF0B002E9D9B /* Assets.xcassets */,
 				497AD5E9213BAF0B002E9D9B /* LaunchScreen.storyboard */,
+				49B121FD21733C3800FD62A4 /* GoogleService-Info.plist */,
 				497AD5EC213BAF0B002E9D9B /* Info.plist */,
 			);
 			path = BlackJack;
+			sourceTree = "<group>";
+		};
+		B6C4E3E9B46B015DB7D77FB3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F21D19576F714233EA5ED625 /* Pods-BlackJack.debug.xcconfig */,
+				37CCCFD214ABA10FD22E58BA /* Pods-BlackJack.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 497AD5EF213BAF0B002E9D9B /* Build configuration list for PBXNativeTarget "BlackJack" */;
 			buildPhases = (
+				B05587C25E77C50C007FA1A0 /* [CP] Check Pods Manifest.lock */,
 				497AD5D9213BAF09002E9D9B /* Sources */,
 				497AD5DA213BAF09002E9D9B /* Frameworks */,
 				497AD5DB213BAF09002E9D9B /* Resources */,
+				A1C25CA788E99B562995C970 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				497AD5EB213BAF0B002E9D9B /* LaunchScreen.storyboard in Resources */,
+				49B121FE21733C3800FD62A4 /* GoogleService-Info.plist in Resources */,
 				497AD5E8213BAF0B002E9D9B /* Assets.xcassets in Resources */,
 				497AD5E6213BAF09002E9D9B /* Main.storyboard in Resources */,
 			);
@@ -164,17 +214,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A1C25CA788E99B562995C970 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BlackJack/Pods-BlackJack-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlackJack/Pods-BlackJack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B05587C25E77C50C007FA1A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlackJack-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		497AD5D9213BAF09002E9D9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4941998E2168F3B400CB471F /* DealerCardCollectionViewCell.swift in Sources */,
+				4941999E217328C800CB471F /* RegisterViewController.swift in Sources */,
+				494199A0217328F400CB471F /* WelcomeViewController.swift in Sources */,
 				497AD5E3213BAF09002E9D9B /* ViewController.swift in Sources */,
+				4941999C2173284F00CB471F /* LogInViewController.swift in Sources */,
 				49419996216C43A900CB471F /* Dealer.swift in Sources */,
 				49419990216C2FD700CB471F /* PlayerCardCollectionViewCell.swift in Sources */,
 				49419998216C43B300CB471F /* Hand.swift in Sources */,
 				49419994216C439D00CB471F /* Player.swift in Sources */,
+				49B122022173487600FD62A4 /* GameTableViewController.swift in Sources */,
 				497AD5E1213BAF09002E9D9B /* AppDelegate.swift in Sources */,
 				4941999A216C43E400CB471F /* Card.swift in Sources */,
 			);
@@ -318,6 +429,7 @@
 		};
 		497AD5F0213BAF0B002E9D9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F21D19576F714233EA5ED625 /* Pods-BlackJack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -335,6 +447,7 @@
 		};
 		497AD5F1213BAF0B002E9D9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37CCCFD214ABA10FD22E58BA /* Pods-BlackJack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -10,7 +10,7 @@ import Foundation
 
 class Dealer {
     
-    let cards: [Card]
+    var cards: [Card]
     
     init() {
         self.cards = []
@@ -25,6 +25,14 @@ class Dealer {
         }
         
         return sum
+    }
+    
+    func addCard(card: Card) {
+        
+        if card.face == "A" && summationValueCards() >= 11 {
+            card.value = 1
+            self.cards.append(card)
+        } else { self.cards.append(card) }
     }
     
     func hasBlackjack() -> Bool {

@@ -14,6 +14,7 @@ class Player {
     var name: String
     var moneyAmount: Int
     var betBox: Int
+    final let actions = ["HIT", "STAND", "DD", "SPLIT"]
     
     init(name: String = "Player", money: Int = 0) {
         
@@ -34,6 +35,14 @@ class Player {
         return sum
     }
     
+    func addCard(card: Card) {
+        
+        if card.face == "A" && summationValueCards() >= 11 {
+            card.value = 1
+            self.cards.append(card)
+        } else { self.cards.append(card) }
+    }
+    
     func hasBlackjack() -> Bool {
         
         return summationValueCards() == 21
@@ -42,5 +51,13 @@ class Player {
     func gotBust() -> Bool {
         
         return summationValueCards() > 21
+    }
+    
+    func addMoney(amount: Int) {
+        self.moneyAmount += amount
+    }
+    
+    func substractMoney(amount: Int) {
+        self.moneyAmount -= amount
     }
 }

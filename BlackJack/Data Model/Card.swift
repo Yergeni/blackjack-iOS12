@@ -13,7 +13,7 @@ class Card {
     let face: String
     let imageName: String
     let suit: String
-    let value: Int
+    var value: Int
     
     init(face: String, suit: String, value: Int) {
         

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>1050707883730-0g4p1jg3kpq3hbjmpdvi1o6iq44t3kh9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1050707883730-0g4p1jg3kpq3hbjmpdvi1o6iq44t3kh9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDcduUxf8ZNuDo_ET9ctzYANrht-PQ6sq8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1050707883730</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ycabranes84.BlackJack</string>
+	<key>PROJECT_ID</key>
+	<string>casino-f78ca</string>
+	<key>STORAGE_BUCKET</key>
+	<string>casino-f78ca.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1050707883730:ios:171fc81a83a093a5</string>
+	<key>DATABASE_URL</key>
+	<string>https://casino-f78ca.firebaseio.com</string>
+</dict>
+</plist>

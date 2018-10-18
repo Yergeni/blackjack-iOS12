@@ -11,15 +11,15 @@ import Foundation
 class Player {
     
     var cards: [Card]
-    var name: String
+    var nickname: String
     var moneyAmount: Int
     var betBox: Int
     final let actions = ["HIT", "STAND", "DD", "SPLIT"]
     
-    init(name: String = "Player", money: Int = 0) {
+    init(nickname: String = "Player", money: Int = 0) {
         
         self.cards = []
-        self.name = name
+        self.nickname = nickname
         self.moneyAmount = money
         self.betBox = 0
     }

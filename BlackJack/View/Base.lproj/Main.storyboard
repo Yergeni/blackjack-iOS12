@@ -89,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bXU-qK-q0a">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameTableViewCell" id="bXU-qK-q0a">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bXU-qK-q0a" id="WwF-zz-GjH">
@@ -104,9 +104,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Games" id="2jo-jz-65M">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="Lff-fC-KRR"/>
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="Lff-fC-KRR">
+                            <connections>
+                                <action selector="logOutPressed:" destination="paU-KT-Fuj" id="8pC-TS-njL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="gameTableView" destination="MQF-Dt-YV3" id="Qc5-z5-wKS"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToBlackjack" id="m2Q-7H-0yG"/>
                     </connections>
                 </tableViewController>
@@ -205,7 +211,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgg-Ka-8b0">
-                                <rect key="frame" x="16" y="236" width="343" height="30"/>
+                                <rect key="frame" x="16" y="276" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.60392156860000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Register">
@@ -215,12 +221,20 @@
                                     <action selector="registerButtonPressed:" destination="dPy-xE-ECd" eventType="touchUpInside" id="box-qM-qJz"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LDg-I7-6nP">
+                                <rect key="frame" x="16" y="236" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="Sfl-Ps-3VT" userLabel="Registration Item"/>
                     <connections>
                         <outlet property="emailTextField" destination="nD3-DG-rAZ" id="IuO-hD-UXU"/>
+                        <outlet property="nicknameTextField" destination="LDg-I7-6nP" id="aC3-Ca-xUU"/>
                         <outlet property="passwordTextField" destination="yoV-zf-t6d" id="AeY-g2-KAh"/>
                         <segue destination="paU-KT-Fuj" kind="show" identifier="goToGames" id="VUE-Kn-quY"/>
                     </connections>
@@ -232,7 +246,7 @@
         <!--BlackJack View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="BlackJack View Controller" customClass="ViewController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="BlackJack View Controller" customClass="BlackjackViewController" customModule="BlackJack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8cb-KJ-txa"/>
                         <viewControllerLayoutGuide type="bottom" id="Lfr-an-I0t"/>
@@ -398,6 +412,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Blackjack" id="OXx-HM-2rz">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="syY-rr-LSm">
+                            <connections>
+                                <action selector="logOutPressed:" destination="BYZ-38-t0r" id="R8Y-Un-vBo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="betBoxLabel" destination="ACr-LA-kSn" id="mqG-J0-fMO"/>
                         <outlet property="dealerCollectionView" destination="giW-X3-WkH" id="ywV-SU-ZQB"/>
@@ -415,6 +436,6 @@
         <image name="red_back" width="230" height="352"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RqY-IN-MxY"/>
+        <segue reference="VUE-Kn-quY"/>
     </inferredMetricsTieBreakers>
 </document>

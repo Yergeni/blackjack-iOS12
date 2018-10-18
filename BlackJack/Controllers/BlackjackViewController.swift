@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    var documentID : String?
     var deck: [Card] = []
     var player: Player = Player()
     var dealer: Dealer = Dealer()
     let hand: Hand = Hand()
+    let game: Game = Game()
     
     @IBOutlet weak var dealerCollectionView: UICollectionView!
     @IBOutlet weak var playerCollectionView: UICollectionView!
@@ -26,6 +29,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //initialize UI
+        playerLabel.text = player.nickname
+        updatePlayerMoneyTextField()
+        updateBetBoxTextField(amount: player.betBox)
+        
+        
         // generating the deck
         self.deck = hand.generateDeck()
         
@@ -34,13 +43,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         playerCollectionView.delegate = self
         playerCollectionView.dataSource = self
-        
-        updateBetBoxTextField(amount: player.betBox)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        generatePlayerStartingAlert()
+        generateBetAlert()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,8 +67,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
-    
     @IBAction func doubleDownButtonPressed(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
+        
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch  {
+            //TODO: Show an alert if error
+            print("error, there was a problem signing out.")
+        }
     }
     
     
@@ -108,7 +126,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func handleGameBeforeActions() {
         
         for _ in 1...2 {
-            //TODO: try to make 0.5 between card distribution
+            //TODO: try to make 0.5 seconds between card distribution
             distributeCard(toPlayer: player, toDealer: dealer)
         }
         
@@ -150,48 +168,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     //MARK: - Alerts
-    func generatePlayerStartingAlert() {
-        
-        var nameTextField = UITextField()
-        var moneyTextField = UITextField()
-        
-        let alert = UIAlertController(title: "Player Information", message: "", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Start Game!", style: .default) { (alertAction) in
-            
-            // What will happend once the user clicks the 'Add' action button on the UIAlert
-            if nameTextField.text != "" && moneyTextField.text != "" {
-            
-                self.player.name = nameTextField.text!
-                self.player.moneyAmount = Int(moneyTextField.text!)!
-            }
-            self.playerLabel.text = self.player.name
-            self.updatePlayerMoneyTextField()
-            self.generateBetAlert()
-        }
-        
-        // adding a text field input to the alert
-        alert.addTextField { (nameAlertTextField) in
-            
-            nameAlertTextField.placeholder = "Enter your name"
-            // A reference to the textField variable created previouuly
-            nameTextField = nameAlertTextField
-            
-        }
-        
-        alert.addTextField { (moneyAlertTextField) in
-            
-            moneyAlertTextField.placeholder = "Enter initial amount of money"
-            moneyTextField = moneyAlertTextField
-        }
-        
-        // Adding the action to the alert
-        alert.addAction(action)
-        
-        // show the alert
-        present(alert, animated: true, completion: nil)
-    }
-    
+
     func generateBetAlert() {
         
         var betTextField = UITextField()
@@ -203,7 +180,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             betTextField.text = "0"
         }
         
-        let alert = UIAlertController(title: "Pease make a bet", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Let's start!!!", message: "Pease make a bet", preferredStyle: .alert)
         
         let betAction = UIAlertAction(title: "Place Bet!", style: .default) { (alertAction) in
             
@@ -258,13 +235,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (alertAction) in
             
+            //TODO: Save values to firebase everytime a hand is over
+            
             self.cleanUI()
             self.generateBetAlert()
         }
         
         let noAction = UIAlertAction(title: "No", style: .default) { (alertAction) in
             
-            //TODO: Close Game and save player values like name and amount of money
+            //TODO: Save values to firebase everytime a hand is over
+            
+            self.cleanUI()
+            
+            // go back to game list
+            self.navigationController?.popViewController(animated: true)
         }
         
         alert.addAction(yesAction)

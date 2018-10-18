@@ -11,6 +11,7 @@ target 'BlackJack' do
     pod 'Firebase/Database'
     pod 'SVProgressHUD'
     pod 'ChameleonFramework'
+    pod 'Firebase/Firestore'
 
 end
 

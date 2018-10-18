@@ -13,13 +13,15 @@ import SVProgressHUD
 
 class LogInViewController : UIViewController {
     
+    let util: Reusables = Reusables()
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailTextField.text = "my@email.com"
+        emailTextField.text = "yero@gmail.com"
         passwordTextField.text = "qwerty"
         
     }
@@ -40,6 +42,8 @@ class LogInViewController : UIViewController {
                 //TODO: Show alert with error
                 print(error!)
                 SVProgressHUD.dismiss()
+                self.present(self.util.genericAlert(title: error!.localizedDescription,
+                                               message: "", titleAction: "Ok"), animated: true)
             }
             else {
                 // success

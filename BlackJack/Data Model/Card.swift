@@ -11,7 +11,7 @@ import Foundation
 class Card {
     
     let face: String
-    let imageName: String
+    var imageName: String
     let suit: String
     var value: Int
     

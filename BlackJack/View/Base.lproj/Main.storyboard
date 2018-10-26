@@ -304,6 +304,13 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="t7w-d5-TF8"/>
                                         </connections>
                                     </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xar-eP-d2P">
+                                        <rect key="frame" x="8" y="98" width="45" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30980392156862746" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -406,6 +413,13 @@
                                             <action selector="stayButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d5k-4m-bMQ"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3r-mn-A7C">
+                                        <rect key="frame" x="8" y="38" width="45" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.5725490196078431" green="0.56470588235294117" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -421,10 +435,16 @@
                     </navigationItem>
                     <connections>
                         <outlet property="betBoxLabel" destination="ACr-LA-kSn" id="mqG-J0-fMO"/>
+                        <outlet property="dealerCardTotalvalues" destination="xar-eP-d2P" id="zgz-Rk-13E"/>
                         <outlet property="dealerCollectionView" destination="giW-X3-WkH" id="ywV-SU-ZQB"/>
+                        <outlet property="doubledownButton" destination="xkc-cQ-4RU" id="oQ3-hJ-7kW"/>
+                        <outlet property="hitButton" destination="X9c-dT-aHJ" id="0K1-5r-NpY"/>
+                        <outlet property="playerCardTotalValues" destination="q3r-mn-A7C" id="rIN-hi-t4o"/>
                         <outlet property="playerCollectionView" destination="i2E-Xk-9KO" id="yrV-62-KnA"/>
                         <outlet property="playerLabel" destination="5yV-5u-mh7" id="3O7-VK-EGB"/>
                         <outlet property="playerMoneyLabel" destination="gBO-ZK-z5a" id="esk-Pl-mRJ"/>
+                        <outlet property="splitButton" destination="ddH-gM-GLs" id="Lfo-Io-ofY"/>
+                        <outlet property="stanButton" destination="xgz-Lw-WYy" id="Myw-aw-Ond"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

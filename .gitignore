@@ -78,4 +78,4 @@ fastlane/test_output
 iOSInjectionProject/
 
 # GoogleServices (Firebase plist)
-**/Supporting Files/GoogleService-Info.plist
+**/Supporting*Files/GoogleService-Info.plist

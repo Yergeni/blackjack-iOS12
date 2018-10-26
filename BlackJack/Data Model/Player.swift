@@ -37,15 +37,26 @@ class Player {
     
     func addCard(card: Card) {
         
-        if card.face == "A" && summationValueCards() >= 11 {
+        if card.face == "A" && summationValueCards() > 10 {
             card.value = 1
-            self.cards.append(card)
-        } else { self.cards.append(card) }
+        }
+        
+        if summationValueCards() + card.value > 21 {
+            changeAsValueToOne()
+        }
+        
+        self.cards.append(card)
+    }
+    
+    func changeAsValueToOne() {
+        for card in cards {
+            if card.face == "A" { card.value = 1 }
+        }
     }
     
     func hasBlackjack() -> Bool {
         
-        return summationValueCards() == 21
+        return cards[0].value + cards[1].value == 21
     }
     
     func gotBust() -> Bool {
@@ -57,7 +68,10 @@ class Player {
         self.moneyAmount += amount
     }
     
-    func substractMoney(amount: Int) {
-        self.moneyAmount -= amount
+    func substractMoney() {
+        
+        if moneyAmount >= betBox {
+            self.moneyAmount -= betBox
+        }
     }
 }

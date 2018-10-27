@@ -11,27 +11,29 @@ import Firebase
 
 class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var testDeck = [
-        Card(face: "10", suit: "S", value: 10), //p
-        Card(face: "A", suit: "H", value: 11), //d
-        Card(face: "9", suit: "S", value: 9), //p
-        Card(face: "8", suit: "C", value: 8), //d
-        
-        Card(face: "2", suit: "H", value: 2), //p
-        Card(face: "3", suit: "H", value: 3), //d
-        Card(face: "8", suit: "D", value: 8), //p
-        Card(face: "A", suit: "C", value: 11), //d
-        Card(face: "3", suit: "S", value: 3),
-        Card(face: "A", suit: "S", value: 11),
-        Card(face: "A", suit: "D", value: 11),
-    ]
+//    var testDeck = [
+//        Card(face: "A", suit: "S", value: 11), //p
+//        Card(face: "A", suit: "H", value: 11), //d
+//        Card(face: "J", suit: "S", value: 10), //p
+//        Card(face: "8", suit: "C", value: 8), //d
+//
+//        Card(face: "A", suit: "H", value: 11), //p
+//        Card(face: "3", suit: "H", value: 3), //d
+//        Card(face: "2", suit: "D", value: 2), //p
+//        Card(face: "A", suit: "C", value: 11), //d
+//        Card(face: "3", suit: "S", value: 3),
+//        Card(face: "A", suit: "S", value: 11),
+//        Card(face: "A", suit: "D", value: 11),
+//    ]
     
+    let db = Firestore.firestore()
     var documentID : String?
     var deck: [Card] = []
     var player: Player = Player()
     var dealer: Dealer = Dealer()
     let hand: Hand = Hand()
     let game: Game = Game()
+    var doubleDownBet: Bool = false // check is the bet alert was touch
     
     @IBOutlet weak var dealerCollectionView: UICollectionView!
     @IBOutlet weak var playerCollectionView: UICollectionView!
@@ -58,11 +60,9 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
         // disable buttons
         disableButtonActions()
         
-        
         // generating the deck
-        //self.deck = hand.generateDeck()
-        self.deck = testDeck
-        
+        self.deck = hand.generateDeck()
+//        self.deck = testDeck
         
         dealerCollectionView.delegate = self
         dealerCollectionView.dataSource = self
@@ -184,7 +184,7 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
         case player.actions[2]:
             handleDoubledowndAction()
         case player.actions[3]:
-            print("handle split action")
+            handleSplitdAction()
         default:
             handleDealerTurn()
         }
@@ -206,16 +206,20 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
         // If doubledown actions got disable
         disableButtonActions()
         
-        distributeCard(toPlayer: player)
-        
-        if player.gotBust() { handleHandOver(state: 1) }
-        else { handleDealerTurn() }
+        // Make the bet
+        //TODO: Bet canot be greater than current bet box value. Show errors on alert
+        generateBetAlert()
     }
     
     func handleStandAction() {
         
         disableButtonActions()
         handleDealerTurn()
+    }
+    
+    func handleSplitdAction() {
+        
+        print("---> Split action coming soon!!!")
     }
     
     func handleDealerTurn() {
@@ -229,15 +233,15 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
         
         if dealer.hasBlackjack() && player.hasBlackjack() {
             //TODO: Handle match game
-            disableButtonActions()
             handleHandOver(state: 0)
         } else if dealer.hasBlackjack() {
             // 'state' in 1 means that player loose the hand
             handleHandOver(state: 1)
         } else if player.hasBlackjack() {
             handleHandOver(state: 2)
+        } else if dealer.summationValueCards() > player.summationValueCards() {
+            handleHandOver(state: 1)
         } else {
-        
             while true {
                 distributeCard(toDealer: dealer)
                 
@@ -283,8 +287,8 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
         
         // recomended bet 100% of your initial bet when 'Doubledown'
         if player.betBox > 0 {
-            betTextField.placeholder = "Recomended bet: double bet box"
-            title = "Dobledown BET"
+            betTextField.placeholder = "Recomended bet: double current bet box"
+            title = "DOUBLEDOWN BET"
         } else {
             betTextField.text = "0"
             title = "Let's start!!!"
@@ -293,8 +297,11 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
         let alert = UIAlertController(title: title, message: "Pease make a bet", preferredStyle: .alert)
         
         let betAction = UIAlertAction(title: "Place Bet!", style: .default) { (alertAction) in
-            
             // What will happend once the user clicks the 'Place Bet!' action button on the UIAlert
+            
+            // put to true the alertTouched variable
+            if self.player.betBox > 0 { self.doubleDownBet = true }
+            
             if betTextField.text != "" {
                 
                 let bet = Int(betTextField.text!)!
@@ -310,12 +317,17 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
                     
                     self.updateBetLabelField(amount: self.player.betBox)
                     
-                    // put 0 to the betText field
-                    betTextField.text = ""
+                    // put 0 to the betText field just in case
+                    //betTextField.text = ""
                     
                     // distribute cards and handle game
-                    self.handleGameBeforeActions()
-                    
+                    if self.doubleDownBet == false { self.handleGameBeforeActions() }
+                    else {
+                        self.distributeCard(toPlayer: self.player)
+                        
+                        if self.player.gotBust() { self.handleHandOver(state: 1) }
+                        else { self.handleDealerTurn() }
+                        }
                 } else {
                     //TODO: Show error on the alert to let player know that the bet cannot be placed
                     print("You do not have enough founds.")
@@ -361,20 +373,20 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (alertAction) in
             
-            //TODO: Save values to firebase everytime a hand is over
+            self.updatePlayerInformation(documentID: self.documentID!, money: self.player.moneyAmount)
             
             self.cleanUI()
             self.updatePlayerMoneyLabel()
             self.generateBetAlert()
-            self.initializePlayerAndDealerAttributes()
+//            self.initializePlayerAndDealerAttributes()
         }
         
         let noAction = UIAlertAction(title: "No", style: .default) { (alertAction) in
             
-            //TODO: Save values to firebase everytime a hand is over
+            self.updatePlayerInformation(documentID: self.documentID!, money: self.player.moneyAmount)
             
             self.cleanUI()
-            self.initializePlayerAndDealerAttributes()
+//            self.initializePlayerAndDealerAttributes()
             
             // go back to game list
             self.navigationController?.popViewController(animated: true)
@@ -385,6 +397,25 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
         
         // show the alert
         present(alert, animated: true, completion: nil)
+    }
+    
+    
+    //MARK: - Firebase methods
+    private func updatePlayerInformation(documentID: String, money: Int) {
+        // [START update_document]
+        let playerRef = db.collection("players").document(documentID)
+        
+        // Set the "game" field of the player
+        playerRef.updateData([
+            "money": money
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+        // [END update_document]
     }
     
     
@@ -406,17 +437,18 @@ class BlackjackViewController: UIViewController, UICollectionViewDelegate, UICol
         player.cards.removeAll()
         dealer.cards.removeAll()
         player.betBox = 0
-        //deck = hand.generateDeck()
+        deck = hand.generateDeck()
         updateBetLabelField(amount: 0)
         reloadCollectionViewData()
         playerCardTotalValues.text = ""
         dealerCardTotalvalues.text = ""
+        doubleDownBet = false
     }
     
-    func initializePlayerAndDealerAttributes() {
-        player.cards = []
-        dealer.cards = []
-    }
+//    func initializePlayerAndDealerAttributes() {
+//        player.cards = []
+//        dealer.cards = []
+//    }
     
 }
 
